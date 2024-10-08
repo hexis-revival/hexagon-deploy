@@ -48,6 +48,31 @@ services:
       timeout: 5s
       retries: 5
 
+  hexagon:
+    build: ./services/hexagon
+    restart: unless-stopped
+    env_file:
+      - '.env'
+    ports:
+      - ${HNET_HOST}:${HNET_PORT}:21556
+      - ${HSCORE_HOST}:${HSCORE_PORT}:80
+    networks:
+      - hexis
+    links:
+      - db:db
+      - cache:cache
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+    command: >
+      --redis-host cache
+      --db-host db
+      --db-username ${POSTGRES_USER}
+      --db-password ${POSTGRES_PASSWORD}
+      --db-database ${POSTGRES_USER}
+
 networks:
   hexis:
     driver: bridge
