@@ -4,7 +4,7 @@ This repository contains a docker compose configuration to deploy all hexagon se
 
 ## Prerequisites
 
-To get started with this project, you will need docker installed on your machine. If you haven't set up docker yet, follow this guide for detailed installation instructions suitable for your operating system.
+To get started with this project, you will need docker installed on your machine. If you haven't set up docker yet, follow [this guide](https://docs.docker.com/get-started/get-docker) for detailed installation instructions suitable for your operating system.
 
 Once installed, you can verify that docker is correctly set up by running the following command in your terminal:
 
