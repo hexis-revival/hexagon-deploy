@@ -1,0 +1,3 @@
+[submodule "services/hexagon"]
+	path = services/hexagon
+	url = https://github.com/hexis-revival/hexagon.git
