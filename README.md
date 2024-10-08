@@ -1,73 +1,92 @@
 # Hexagon Deployment
 
-This repository contains a docker compose configuration to deploy all hexagon services.
+This repository contains a docker compose configuration to deploy all hexagon services. The guide below will show you how to set it up.
 
-## Getting Started
+## Prerequisites
 
-To set up this project, it is advisable to use Docker. Please refer to [this guide](https://docs.docker.com/get-started/get-docker/) on how to install it.
+To get started with this project, you will need docker installed on your machine. If you haven't set up docker yet, follow this guide for detailed installation instructions suitable for your operating system.
 
-Verify that docker is installed:
+Once installed, you can verify that docker is correctly set up by running the following command in your terminal:
 
 ```
 docker --version
 ```
 
-Clone this project onto your machine:
+## Cloning the Repository
+
+To set up the project locally, clone the repository using the following command. Ensure you're pulling submodules recursively and only shallow cloning to reduce unnecessary data:
 
 ```
 git clone --recurse-submodules --shallow-submodules https://github.com/hexis-revival/hexagon-deploy.git
 ```
 
-Copy the `.example.env` file to a new `.env` file and **edit it**.
+This will clone the entire project, including all necessary submodules that contain additional configurations or dependencies.
 
-Start the server:
+## Configuring Environment Variables
+
+Before starting the services, you need to configure the environment variables. A template is provided in the `.example.env` file. Copy this file and create a new `.env` file where you will define your specific settings:
+
+```
+cp .example.env .env
+```
+
+## Running & managing the server
+
+With docker set up and the environment configured, you can now launch Hexagon using docker compose. From the root of the project directory, run the following command:
 
 ```
 docker compose up -d
 ```
 
-("-d" argument means detached, meaning that containers will run in background)
+The `-d` flag stands for "detached mode", which means the containers will run in the background, freeing up your terminal for other tasks.
 
-To turn off the server, from the root project folder, execute:
+### Stopping the server
+
+If you need to stop the server at any point, you can do so by running:
 
 ```
 docker compose stop
 ```
 
-If you experience issues on the first run, you may need to restart your containers:
+This will gracefully shut down all running containers.
+
+### Rebuilding Containers
+
+In cases where you’ve made changes to the configuration files or the code and don’t see the expected results, you may need to rebuild your docker images. To do this, execute the following:
 
 ```
-docker compose restart
-```
-
-If you changed some files around, and don't see your changes applied, execute:
-
-```
-(rebuild)
 docker compose build
-(apply changes & restart affected containers)
+```
+
+After rebuilding, restart the containers to apply the changes:
+
+```
 docker compose up -d
 ```
 
-## Updating
+This ensures that any updates to your files are correctly applied to the services.
 
-This project will get updates from time to time, so it's a good idea to apply them once in a while.
+## Keeping your Deployment Up to Date
 
-Start by first pulling all pending changes into your root folder:
+Hexagon may receive updates periodically. It’s recommended to pull in the latest changes regularly to ensure you're running the most up-to-date version.
+
+To begin updating, navigate to the root of the project and pull the latest changes:
 
 ```
 git pull
 ```
 
-After that update all of your submodules:
+Since the project includes submodules, you will also need to update them to match the latest state:
 
 ```
 git submodule update --recursive
 ```
 
-Finally, rebuild and restart all of your containers:
+After updating the repository and submodules, rebuild the docker images and restart the containers to apply the updates:
 
 ```
 docker compose build
 docker compose up -d
 ```
+
+Following these steps ensures that your services are always running the latest version with all relevant updates applied.
