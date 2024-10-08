@@ -54,7 +54,8 @@ services:
     env_file:
       - '.env'
     ports:
-      - ${HNET_HOST}:${HNET_PORT}:21556
+      - ${HNET_HOST}:${HNET_PORT}:21556/udp
+      - ${HNET_HOST}:${HNET_PORT}:21556/tcp
       - ${HSCORE_HOST}:${HSCORE_PORT}:80
     networks:
       - hexis
