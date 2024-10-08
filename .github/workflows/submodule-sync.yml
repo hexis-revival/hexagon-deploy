@@ -22,6 +22,7 @@ jobs:
     - name: Git submodule update
       run: |
         git update-index --cacheinfo 160000,$(git ls-remote https://github.com/hexis-revival/hexagon.git HEAD | awk '{ print $1}'),services/hexagon
+        git update-index --cacheinfo 160000,$(git ls-remote https://github.com/hexis-revival/hexagon-web.git HEAD | awk '{ print $1}'),services/hexagon-web
 
     - name: Commit update
       run: |
