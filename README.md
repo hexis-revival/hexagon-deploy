@@ -30,7 +30,7 @@ Before starting the services, you need to configure the environment variables. A
 cp .example.env .env
 ```
 
-## Running & managing the server
+## Running & Managing the Server
 
 With docker set up and the environment configured, you can now launch Hexagon using docker compose. From the root of the project directory, run the following command:
 
@@ -40,7 +40,7 @@ docker compose up -d
 
 The `-d` flag stands for "detached mode", which means the containers will run in the background, freeing up your terminal for other tasks.
 
-### Stopping the server
+### Stopping the Server
 
 If you need to stop the server at any point, you can do so by running:
 
