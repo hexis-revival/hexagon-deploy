@@ -59,6 +59,8 @@ services:
       - ${HSCORE_HOST}:${HSCORE_PORT}:80
     networks:
       - hexis
+    volumes:
+      - ./.data/:/.data/
     links:
       - db:db
       - cache:cache
