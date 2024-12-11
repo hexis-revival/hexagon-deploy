@@ -18,7 +18,6 @@ CREATE TABLE beatmapsets (
 CREATE TABLE beatmaps (
     id serial NOT NULL PRIMARY KEY,
     set_id integer NOT NULL REFERENCES beatmapsets (id),
-    set_id integer NOT NULL,
     checksum character(32) NOT NULL,
     version character varying(255) NOT NULL,
     filename character varying(512) NOT NULL,
