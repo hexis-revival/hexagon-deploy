@@ -8,7 +8,7 @@ CREATE TABLE beatmapsets (
     created_at timestamp without time zone NOT NULL DEFAULT now(),
     last_updated timestamp without time zone NOT NULL DEFAULT now(),
     approved_at timestamp without time zone NOT NULL DEFAULT now(),
-    approved_by integer NOT NULL REFERENCES users (id),
+    approved_by integer REFERENCES users (id),
     status smallint NOT NULL DEFAULT 1,
     description text NOT NULL DEFAULT '',
     has_video boolean NOT NULL DEFAULT false,
