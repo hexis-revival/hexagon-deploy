@@ -3,6 +3,7 @@ CREATE TABLE beatmapsets (
     title character varying(255) NOT NULL,
     artist character varying(255) NOT NULL,
     source character varying(255) NOT NULL,
+    tags text[] NOT NULL DEFAULT '{}',
     creator_id integer NOT NULL REFERENCES users (id),
     created_at timestamp without time zone NOT NULL DEFAULT now(),
     last_updated timestamp without time zone NOT NULL DEFAULT now(),
