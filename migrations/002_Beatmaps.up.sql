@@ -7,7 +7,7 @@ CREATE TABLE beatmapsets (
     creator_id integer NOT NULL REFERENCES users (id),
     created_at timestamp without time zone NOT NULL DEFAULT now(),
     last_updated timestamp without time zone NOT NULL DEFAULT now(),
-    approved_at timestamp without time zone NOT NULL DEFAULT now(),
+    approved_at timestamp without time zone,
     approved_by integer REFERENCES users (id),
     status smallint NOT NULL DEFAULT 1,
     description text NOT NULL DEFAULT '',
