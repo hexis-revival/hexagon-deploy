@@ -1,9 +1,16 @@
+CREATE TYPE score_status AS ENUM (
+    'failed',
+    'submitted',
+    'best',
+    'mods'
+);
+
 CREATE TABLE scores (
     id bigserial NOT NULL PRIMARY KEY,
     beatmap_id int NOT NULL REFERENCES beatmaps (id),
     user_id int NOT NULL REFERENCES users (id),
     checksum character(32) NOT NULL,
-    status smallint NOT NULL,
+    status score_status NOT NULL,
     created_at timestamptz NOT NULL DEFAULT now(),
     client_version int NOT NULL,
     total_score bigint NOT NULL,
