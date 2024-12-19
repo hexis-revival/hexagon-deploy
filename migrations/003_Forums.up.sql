@@ -3,8 +3,8 @@ CREATE TABLE IF NOT EXISTS forums
     id serial NOT NULL PRIMARY KEY,
     parent_id int REFERENCES forums (id) DEFAULT NULL,
     created_at timestamp with time zone NOT NULL DEFAULT now(),
-    name character varying(32) NOT NULL,
-    description character varying(255) NOT NULL DEFAULT '',
+    name varchar(32) NOT NULL,
+    description varchar(255) NOT NULL DEFAULT '',
     hidden boolean NOT NULL DEFAULT false
 );
 
@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS forum_topics
     id serial NOT NULL PRIMARY KEY,
     forum_id int NOT NULL REFERENCES forums (id),
     creator_id int NOT NULL REFERENCES users (id),
-    title character varying(255) NOT NULL,
-    status_text character varying(255) DEFAULT NULL,
+    title varchar(255) NOT NULL,
+    status_text varchar(255) DEFAULT NULL,
     created_at timestamp with time zone NOT NULL DEFAULT now(),
     last_post_at timestamp with time zone NOT NULL DEFAULT now(),
     locked_at timestamp with time zone DEFAULT NULL,
