@@ -26,7 +26,8 @@ CREATE TABLE scores (
     ps_offset smallint NOT NULL,
     hidden boolean NOT NULL,
     nofail boolean NOT NULL,
-    pinned boolean NOT NULL
+    visible boolean NOT NULL DEFAULT true,
+    pinned boolean NOT NULL DEFAULT false
 );
 
 CREATE INDEX idx_scores_beatmap_status ON scores (beatmap_id, status);
