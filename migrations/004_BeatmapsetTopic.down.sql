@@ -1,0 +1,1 @@
+ALTER TABLE beatmapsets DROP COLUMN topic_id;
