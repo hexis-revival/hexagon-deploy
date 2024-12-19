@@ -4,8 +4,8 @@ CREATE TABLE users (
     email varchar(255) NOT NULL,
     password varchar(60) NOT NULL,
     country varchar(2) NOT NULL DEFAULT 'XX' ,
-    created_at timestamp with time zone NOT NULL DEFAULT now(),
-    latest_activity timestamp with time zone NOT NULL DEFAULT now(),
+    created_at timestamptz NOT NULL DEFAULT now(),
+    latest_activity timestamptz NOT NULL DEFAULT now(),
     restricted boolean DEFAULT false NOT NULL,
     activated boolean DEFAULT false NOT NULL
 );
