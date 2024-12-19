@@ -5,6 +5,8 @@ DROP INDEX idx_stats_user_id;
 DROP INDEX idx_users_name;
 DROP INDEX idx_users_id;
 
+DROP TYPE relationship_status;
+
 DELETE FROM relationships;
 DROP TABLE relationships;
 
