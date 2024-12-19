@@ -1,0 +1,1 @@
+ALTER TABLE beatmapsets ADD COLUMN topic_id int REFERENCES forum_topics (id) DEFAULT NULL;
