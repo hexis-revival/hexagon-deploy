@@ -24,8 +24,8 @@ CREATE TABLE scores (
     cs_offset smallint NOT NULL,
     hp_offset smallint NOT NULL,
     ps_offset smallint NOT NULL,
-    hidden boolean NOT NULL,
-    nofail boolean NOT NULL,
+    mod_hidden boolean NOT NULL,
+    mod_nofail boolean NOT NULL,
     visible boolean NOT NULL DEFAULT true,
     pinned boolean NOT NULL DEFAULT false
 );
