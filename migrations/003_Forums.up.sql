@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS forums
 (
     id serial NOT NULL PRIMARY KEY,
-    parent_id int REFERENCES forums (id) DEFAULT NULL,
-    created_at timestamptz NOT NULL DEFAULT now(),
     name varchar(32) NOT NULL,
     description varchar(255) NOT NULL DEFAULT '',
+    created_at timestamptz NOT NULL DEFAULT now(),
+    parent_id int REFERENCES forums (id) DEFAULT NULL,
     hidden boolean NOT NULL DEFAULT false
 );
 
