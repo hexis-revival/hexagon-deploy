@@ -49,3 +49,8 @@ CREATE INDEX idx_stats_user_id ON stats (user_id);
 
 CREATE INDEX idx_relationships_user_id ON relationships (user_id);
 CREATE INDEX idx_relationships_target_id ON relationships (target_id);
+
+INSERT INTO users (name, email, password, country, activated)
+VALUES ('Dienay', 'contact@dienay.net', '$2a$10$uUvzbCIBcFLdxDK6QcGZ3O.K0/4Z3ObFsy0BvetogYdE3IXdn7Q4y', 'CA', true);
+
+ALTER SEQUENCE users_id_seq RESTART WITH 100;

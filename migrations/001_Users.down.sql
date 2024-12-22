@@ -1,3 +1,6 @@
+DELETE FROM stats WHERE user_id = (SELECT id FROM users WHERE name = 'Dienay');
+DELETE FROM users WHERE name = 'Dienay';
+
 DROP INDEX idx_relationships_target_id;
 DROP INDEX idx_relationships_user_id;
 
