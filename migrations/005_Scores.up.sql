@@ -1,3 +1,15 @@
+CREATE TYPE score_grade AS ENUM (
+    'F',
+    'D',
+    'C',
+    'B',
+    'A',
+    'S',
+    'SH',
+    'X',
+    'XH'
+);
+
 CREATE TABLE scores (
     id bigserial NOT NULL PRIMARY KEY,
     beatmap_id int NOT NULL REFERENCES beatmaps (id),
@@ -11,7 +23,7 @@ CREATE TABLE scores (
     accuracy real NOT NULL CHECK (accuracy >= 0 AND accuracy <= 100),
     full_combo boolean NOT NULL,
     passed boolean NOT NULL,
-    grade varchar(2) NOT NULL,
+    grade score_grade NOT NULL,
     count_300 int NOT NULL,
     count_100 int NOT NULL,
     count_50 int NOT NULL,
