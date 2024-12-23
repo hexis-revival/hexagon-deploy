@@ -20,7 +20,7 @@ CREATE TABLE scores (
     client_version int NOT NULL,
     total_score bigint NOT NULL,
     max_combo int NOT NULL,
-    accuracy real NOT NULL CHECK (accuracy >= 0 AND accuracy <= 100),
+    accuracy real NOT NULL CHECK (accuracy >= 0 AND accuracy <= 1),
     full_combo boolean NOT NULL,
     passed boolean NOT NULL,
     grade score_grade NOT NULL,
