@@ -69,6 +69,8 @@ services:
         condition: service_healthy
       cache:
         condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
     command: >
       --redis-host cache
       --db-host db
