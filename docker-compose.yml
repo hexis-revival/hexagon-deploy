@@ -41,7 +41,8 @@ services:
     networks:
       - hexis
     volumes: 
-      - redis_data:/usr/local/etc/redis
+      - redis_data:/root/redis
+      - redis_config:/usr/local/etc/redis
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -84,4 +85,5 @@ networks:
 
 volumes:
   postgres_data:
+  redis_config:
   redis_data:
